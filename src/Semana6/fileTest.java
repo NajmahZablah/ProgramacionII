@@ -4,13 +4,14 @@
  */
 package Semana6;
 
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.io.IOException; // se lanza por errores de entrada/salida al crear archivos
+import java.util.InputMismatchException; // se lanza cuando el usuario ingresa texto en lugar de un número
+import java.util.Scanner; 
 /**
  *
  * @author najma
  */
+// Esta clase implementa el menú interactivo con manejo de excepciones
 public class fileTest {
 
     static Scanner lea = new Scanner(System.in);
@@ -66,11 +67,36 @@ public class fileTest {
                             System.out.println("Error: No se borro");
                         }
                         break;
+                    case 6:
+                        System.out.print("Nuevo nombre: ");
+                        String nuevoNombre = lea.next();
+                        if (mf.renombrar(nuevoNombre)) {
+                            System.out.println("Se renombro correctamente");
+                        } else {
+                            System.out.println("Error: No se pudo renombrar");
+                        }
+                        break;
+                    case 7:
+                        mf.DIR();
+                        break;
+                    case 8: 
+                        mf.tree();
+                        break;
+                    case 9: 
+                        System.out.println("Ingrese el texto");
+                        lea.nextLine();
+                        String texto = lea.nextLine();
+                        mf.escribirTexto(texto);
+                        System.out.println("Texto guardado correctamente");
+                        break;
+                    case 10:
+                        mf.leerTexto();
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Error: Ingrese una opcion valida");
                 lea.next();
-            }catch(NullPointerException e){
+            }catch(NullPointerException e){ // se lanza cuando intentas operar si haber establecido primero el archivo
                 System.out.println("Error: Tiene que ingresar primero la opcion 1");
                 lea.next();
             } catch (IOException e) {
