@@ -21,7 +21,7 @@ public class fileTest {
         int opcion = 0;
 
         do {
-            System.out.println("------- MENU -------");
+            System.out.println("\n------- MENU -------");
             System.out.println("1. Set File/Folder"); //set de archivos
             System.out.println("2. Ver informacion");
             System.out.println("3. Crear archivo"); //file
@@ -96,7 +96,7 @@ public class fileTest {
             } catch (InputMismatchException e) {
                 System.out.println("Error: Ingrese una opcion valida");
                 lea.next();
-            }catch(NullPointerException e){ // se lanza cuando intentas operar si haber establecido primero el archivo
+            } catch(NullPointerException e){ // se lanza cuando intentas operar sin haber establecido primero el archivo
                 System.out.println("Error: Tiene que ingresar primero la opcion 1");
                 lea.next();
             } catch (IOException e) {
